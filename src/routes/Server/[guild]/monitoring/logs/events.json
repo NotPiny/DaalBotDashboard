@@ -1,0 +1,94 @@
+{
+    "events": [
+        {
+            "event": "channelCreate",
+            "description": "A new channel was created in the server.",
+            "display": "Channel Created"
+        },
+        {
+            "event": "channelDelete",
+            "description": "A channel was deleted from the server.",
+            "display": "Channel Deleted"
+        },
+        {
+            "event": "channelUpdate",
+            "description": "A channel's properties were updated.",
+            "display": "Channel Updated"
+        },
+        {
+            "event": "guildBanAdd",
+            "description": "A member was banned from the server.",
+            "display": "Member Banned"
+        },
+        {
+            "event": "guildBanRemove",
+            "description": "A member was unbanned from the server.",
+            "display": "Member Unbanned"
+        },
+        {
+            "event": "guildMemberAdd",
+            "description": "A new member joined the server.",
+            "display": "Member Joined"
+        },
+        {
+            "event": "guildMemberRemove",
+            "description": "A member left the server.",
+            "display": "Member Left"
+        },
+        {
+            "event": "messageDelete",
+            "description": "A message was deleted from a channel.",
+            "display": "Message Deleted"
+        },
+        {
+            "event": "messageDeleteBulk",
+            "description": "Multiple messages were deleted from a channel (only bots can do this).",
+            "display": "Messages Deleted (Bulk)"
+        },
+        {
+            "event": "messageUpdate",
+            "description": "A message was edited in a channel.",
+            "display": "Message Edited"
+        },
+        {
+            "event": "roleCreate",
+            "description": "A new role was created in the server.",
+            "display": "Role Created"
+        },
+        {
+            "event": "roleDelete",
+            "description": "A role was deleted from the server.",
+            "display": "Role Deleted"
+        },
+        {
+            "event": "roleUpdate",
+            "description": "A role's properties were updated.",
+            "display": "Role Updated"
+        },
+        {
+            "event": "ticketClose",
+            "description": "A ticket was closed in the server.",
+            "display": "Ticket Closed"
+        },
+        {
+            "event": "ticketCreate",
+            "description": "A new ticket was created in the server.",
+            "display": "Ticket Created"
+        },
+        {
+            "event": "guildUpdate",
+            "description": "The server's properties were updated (icon, name, etc).",
+            "display": "Server Updated"
+        },
+        {
+            "event": "voiceJoin",
+            "description": "A member joined a voice channel in the server.",
+            "display": "Member Joined Voice Channel"
+        },
+        {
+            "event": "voiceLeave",
+            "description": "A member left a voice channel in the server.",
+            "display": "Member Left Voice Channel"
+        }
+    ]
+}

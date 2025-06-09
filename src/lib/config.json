@@ -1,0 +1,4 @@
+{
+    "authURL": "https://discord.com/oauth2/authorize?client_id=1016086353085222993&response_type=code&redirect_uri=https%3A%2F%2Fbot.daalbot.xyz%2Fget%2Fauth%2FaccessCode&scope=identify+guilds",
+    "authURLInvite": "https://discord.com/oauth2/authorize?client_id=1016086353085222993&scope=identify+guilds+applications.commands+bot&permissions=8&response_type=code&redirect_uri=https%3A%2F%2Fbot.daalbot.xyz%2Fget%2Fauth%2FaccessCode"
+}
