@@ -10,20 +10,19 @@
         if (guild && guild != 'none') sessionStorage.setItem('guild', guild); // This will be wiped once they get redirected anyways
 
         // Get data from discord
-        const [guildData, userData] = await Promise.all([
-            fetch(`https://discord.com/api/v10/users/@me/guilds`, {
-                method: 'GET',
-                headers: {
-                    Authorization: `Bearer ${localStorage.getItem('accessToken')}`,
-                }
-            }),
-            fetch(`https://discord.com/api/v10/users/@me`, {
-                method: 'GET',
-                headers: {
-                    Authorization: `Bearer ${localStorage.getItem('accessToken')}`,
-                }
-            })
-        ]);
+        const guildData = await fetch(`https://discord.com/api/v10/users/@me/guilds`, {
+            method: 'GET',
+            headers: {
+                Authorization: `Bearer ${localStorage.getItem('accessToken')}`,
+            }
+        })
+
+        const userData = await fetch(`https://discord.com/api/v10/users/@me`, {
+            method: 'GET',
+            headers: {
+                Authorization: `Bearer ${localStorage.getItem('accessToken')}`,
+            }
+        })
 
         const guilds = await guildData.json();
         const user = await userData.json();
