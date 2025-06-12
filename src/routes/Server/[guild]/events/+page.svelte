@@ -12,7 +12,7 @@
     let shouldRenderVariableModal = '';
     let api: DBAPI;
     let mode: 'events' | 'variables' = page.url.hash.includes('variables') ? 'variables' : 'events';
-    let variableScope = 'global';
+    let variableScope = page.url.searchParams.get('varscope') || 'global';
     let variables: { name: string, value: string }[] = [];
     
     onMount(async() => {
