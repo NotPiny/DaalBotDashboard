@@ -78,6 +78,12 @@
             Invite Tracking
         </a> -->
     </div>
+    <h3>Tools</h3>
+    <div class="group">
+        <a href="/Server/{page.params.guild}/tools/message-builder">
+            Message Builder
+        </a>
+    </div>
 </div>
 
 <h2>

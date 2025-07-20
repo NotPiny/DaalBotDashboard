@@ -57,17 +57,21 @@
 
         userData.guilds = userData.guilds.filter(g => parseInt(g.permissions) & 0x20); // Filter out guilds that the user does not have the MANAGE_GUILD permission
 
-        // Fetch mutual guilds
-        getMutualGuilds(api).then(guilds => {
-            mutualGuilds = guilds;
-        }).catch(error => {
-            console.error('Error fetching mutual guilds:', error);
-            alert('Failed to fetch mutual guilds. You are about to be logged out and redirected to the login page to reauthenticate.');
-            localStorage.removeItem('accessToken');
-            localStorage.removeItem('user');
-            sessionStorage.removeItem('guild');
-            window.location.href = '/'; // Trigger login flow
-        });
+        if (sessionStorage.getItem('mutualGuilds')) {
+            mutualGuilds = JSON.parse(sessionStorage.getItem('mutualGuilds') || '[]');
+        } else {
+            getMutualGuilds(api).then(guilds => {
+                mutualGuilds = guilds;
+                sessionStorage.setItem('mutualGuilds', JSON.stringify(guilds));
+            }).catch(error => {
+                console.error('Error fetching mutual guilds:', error);
+                alert('Failed to fetch mutual guilds. You are about to be logged out and redirected to the login page to reauthenticate.');
+                localStorage.removeItem('accessToken');
+                localStorage.removeItem('user');
+                sessionStorage.removeItem('guild');
+                window.location.href = '/'; // Trigger login flow
+            });
+        }
     
         return () => {
             window.removeEventListener('resize', handleResize);

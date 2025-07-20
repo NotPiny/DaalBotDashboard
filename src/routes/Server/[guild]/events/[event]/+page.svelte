@@ -57,11 +57,17 @@
 
         lastSavedCode = await modules.readEventCode(api, page.params.event);
 
+        // Wait for fonts to load
+        await document.fonts.ready;
+
         Monaco = await import('monaco-editor');
         editor = Monaco.editor.create(divEl, {
             value: lastSavedCode,
             language: 'javascript',
-            theme: 'vs-dark'
+            theme: 'vs-dark',
+            fontFamily: '"JetBrains Mono", "Consolas", "Courier New", monospace',
+            fontWeight: '400',
+            fontSize: 14
         });
     });
 
@@ -102,12 +108,19 @@
     <title>
         Editor - {event?.name}
     </title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@100..800&display=swap" rel="stylesheet">
 </svelte:head>
 
+<div class="jetbrains-mono-code">
+    <p>This is some test text to test the font :) => (() => [])();</p>
+</div>
 <!-- svelte-ignore a11y_no_static_element_interactions -->
-<div bind:this={divEl} class="h-screen" on:keydown={(e) => {
+<div bind:this={divEl} class="h-screen jetbrains-mono-code" on:keydown={(e) => {
     if (e.ctrlKey && e.key === 's') {
         e.preventDefault();
+
         saveCode();
     }
 }}></div>
@@ -121,6 +134,13 @@
 <style>
     .h-screen {
         height: 100vh;
+    }
+
+    .jetbrains-mono-code {
+        font-family: "JetBrains Mono", monospace;
+        font-optical-sizing: auto;
+        font-weight: 400;
+        font-style: normal;
     }
 
     button {
@@ -141,3 +161,4 @@
         cursor: pointer;
     }
 </style>
+
